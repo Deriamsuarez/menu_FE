@@ -2,6 +2,7 @@ import React from 'react'
 import { Alert, AlertTitle, Avatar, Box, Button, Divider, Drawer, List, ListItem, ListItemAvatar, ListItemText, TextField, Typography } from '@mui/material'
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { padding, Stack } from '@mui/system';
 
 
@@ -9,6 +10,7 @@ const Cart = ({ state, setState }) => {
 
     const list = (anchor) => (
         <Box sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 300 }}>
+          <Typography variant='h5'sx={{display:'flex', alignItems: 'center', justifyContent:"center", marginTop: '1em', gap:'0.5em'}}><LocalMallOutlinedIcon  color='primary'  />Cart</Typography>
             <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                 <ListItem>
                     <ListItemAvatar>
@@ -27,6 +29,116 @@ const Cart = ({ state, setState }) => {
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText primary="Pina Colada" secondary="$700.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Pina Colada" secondary="$700.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Pina Colada" secondary="$700.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Pina Colada" secondary="$700.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Pina Colada" secondary="$700.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Pina Colada" secondary="$700.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hamburguesa" secondary="$450.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hamburguesa" secondary="$450.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hamburguesa" secondary="$450.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hamburguesa" secondary="$450.60" />
+                    <Button color='error'>
+                        <DeleteOutlineOutlinedIcon color='error' />
+                    </Button>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <LocalMallOutlinedIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hamburguesa" secondary="$450.60" />
                     <Button color='error'>
                         <DeleteOutlineOutlinedIcon color='error' />
                     </Button>
@@ -56,7 +168,6 @@ const Cart = ({ state, setState }) => {
             anchor={'right'}
             open={state['right']}
             onClose={() => setState({ right: false })}
-
         >
             <Stack
                 sx={{
@@ -66,6 +177,7 @@ const Cart = ({ state, setState }) => {
                     justifyContent: "space-between"
                 }}
             >
+                
                 {list('right')}
 
                 <Stack sx={{ mx: '2em', my: '3em', gap: '1em' }}>
@@ -90,13 +202,13 @@ const Cart = ({ state, setState }) => {
                     </Stack>
                     <Divider />
                     <Alert severity="info" sx={{ maxWidth: "100%", textAlign: "justify" }}>
-                        <AlertTitle>Agregar otra cuenta</AlertTitle>
+                        <AlertTitle sx={{display: 'flex', justifyContent:'space-between', textAlign:'center'}}>Agregar cuenta <KeyboardArrowDownIcon /></AlertTitle>
                         Si asumirá la cuenta de alguien más, <strong>haga click en el siguiente boton:</strong>
                         <Button variant='outlined'
                             color='info'
                             sx={{ width: "100%", marginTop: '1em' }}>Agregar Cuenta</Button>
                     </Alert>
-                    <Button variant='contained' color='success'>Solicitar Cuenta</Button>
+                    <Button variant='contained' color='success' sx={{marginBottom: '3em' }}>Solicitar Cuenta</Button>
                 </Stack>
             </Stack>
         </Drawer>
