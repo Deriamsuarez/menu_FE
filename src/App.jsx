@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import ClientLayout from './Layout/Clients'
 import Home from './views/Home'
+import Orders from './views/Orders'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <Routes>
       <Route element={<ClientLayout />}>
         <Route path='/' element={<Home />} />
+        <Route path='/orders' element={<Orders />} />
       </Route>
     </Routes>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Snackbar, Stack } from '@mui/material'
+import { Alert, Snackbar, Stack, Tab, Tabs } from '@mui/material'
 import SectionMenu from './components/SectionMenu';
 import ModalInfoProduct from './components/ModalInfoProduct';
 import { useOutletContext } from 'react-router-dom';
@@ -73,49 +73,74 @@ const Home = () => {
     }
     const handleClose = () => setOpen(false);
 
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
     return (
-        <Stack
-            p={4}
-            direction='row'
-            flexWrap='wrap'
-            gap='56.5px'
-            justifyContent='center'
-            alignContent='flex-end'
-            alignItems='flex-start'
-        >
+        <Stack>
+            <Tabs
+                value={0}
+                onChange={handleChange}
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
+            >
+                <Tab label="Todo" />
+                <Tab label="Entradas" />
+                <Tab label="Juntes" />
+                <Tab label="Platos" />
+                <Tab label="Sushinis" />
+                <Tab label="Bebidas" />
+                <Tab label="Postres" />
+            </Tabs>
 
-            {foods && foods.map(section =>
-                <SectionMenu
-                    setCartState={setCartState}
+            <Stack
+                p={4}
+                direction='row'
+                flexWrap='wrap'
+                gap='56.5px'
+                justifyContent='center'
+                alignContent='flex-end'
+                alignItems='flex-start'
+            >
+
+
+                {foods && foods.map(section =>
+                    <SectionMenu
+                        setCartState={setCartState}
+                        addProduct={addProduct}
+                        key={section.title}
+                        section={section}
+                        handleOpen={handleOpen}
+                        setOpenMessage={setOpenMessage} />
+                )}
+
+                <ModalInfoProduct
                     addProduct={addProduct}
-                    key={section.title}
-                    section={section}
-                    handleOpen={handleOpen}
-                    setOpenMessage={setOpenMessage} />
-            )}
+                    handleClose={handleClose}
+                    modalInfo={modalInfo}
+                    handleClick={handleClick}
+                    open={open} />
 
-            <ModalInfoProduct
-                addProduct={addProduct}
-                handleClose={handleClose}
-                modalInfo={modalInfo}
-                handleClick={handleClick}
-                open={open} />
-
-            <Snackbar
-                open={openMessage}
-                autoHideDuration={3000}
-                onClose={handleCloseMessage}>
-                <Alert
-                    onClose={handleCloseMessage}
-                    variant="filled"
-                    severity="success"
-                    sx={{ width: '100%' }}>
-                    Producto agregado correctamente
-                </Alert>
-            </Snackbar>
-            <Cart
-                state={cartState}
-                setState={setCartState} />
+                <Snackbar
+                    open={openMessage}
+                    autoHideDuration={3000}
+                    onClose={handleCloseMessage}>
+                    <Alert
+                        onClose={handleCloseMessage}
+                        variant="filled"
+                        severity="success"
+                        sx={{ width: '100%' }}>
+                        Producto agregado correctamente
+                    </Alert>
+                </Snackbar>
+                <Cart
+                    state={cartState}
+                    setState={setCartState} />
+            </Stack>
         </Stack>
     )
 }

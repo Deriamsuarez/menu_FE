@@ -3,20 +3,19 @@ import { AppBar, Badge, Button, Stack, Tab, Tabs, Toolbar, Typography } from '@m
 import { Box } from '@mui/system'
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import LocalDiningOutlinedIcon from '@mui/icons-material/LocalDiningOutlined';
+import { useNavigate } from 'react-router-dom';
 
 
 const Header = ({ counterBag, setCounterBag, setCartState }) => {
 
-  const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   const cartOption = () => {
     setCounterBag(0);
     setCartState({ right: true })
   }
+
+  const navigate = useNavigate();
 
 
   return (
@@ -26,7 +25,7 @@ const Header = ({ counterBag, setCounterBag, setCartState }) => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Food International
           </Typography>
-          <Button color="inherit">
+          <Button onClick={() => navigate('/orders')} color="inherit">
             <LocalDiningOutlinedIcon />
           </Button>
           <Button onClick={cartOption} color="inherit">
@@ -36,21 +35,6 @@ const Header = ({ counterBag, setCounterBag, setCartState }) => {
           </Button>
         </Toolbar>
       </AppBar>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        variant="scrollable"
-        scrollButtons="auto"
-        aria-label="scrollable auto tabs example"
-      >
-        <Tab label="Todo" />
-        <Tab label="Entradas" />
-        <Tab label="Juntes" />
-        <Tab label="Platos" />
-        <Tab label="Sushinis" />
-        <Tab label="Bebidas" />
-        <Tab label="Postres" />
-      </Tabs>    
     </Box>
   )
 }
