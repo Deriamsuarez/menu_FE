@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AppBar, Badge, Button, Tab, Tabs, Toolbar, Typography } from '@mui/material'
+import { AppBar, Badge, Button, Stack, Tab, Tabs, Toolbar, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import LocalDiningOutlinedIcon from '@mui/icons-material/LocalDiningOutlined';
@@ -50,7 +50,7 @@ const Header = ({ counterBag, setCounterBag, setCartState }) => {
         <Tab label="Sushinis" />
         <Tab label="Bebidas" />
         <Tab label="Postres" />
-      </Tabs>
+      </Tabs>    
     </Box>
   )
 }

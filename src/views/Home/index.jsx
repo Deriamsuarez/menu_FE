@@ -3,9 +3,7 @@ import { Alert, Snackbar, Stack } from '@mui/material'
 import SectionMenu from './components/SectionMenu';
 import ModalInfoProduct from './components/ModalInfoProduct';
 import { useOutletContext } from 'react-router-dom';
-import axios from 'axios';
 import Cart from './components/Cart'
-import { useEffect } from 'react';
 
 const menu = {
     foodsMenu: [
