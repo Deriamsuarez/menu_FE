@@ -3,7 +3,6 @@ import { Alert, Snackbar, Stack, Tab, Tabs } from '@mui/material'
 import SectionMenu from './components/SectionMenu';
 import ModalInfoProduct from './components/ModalInfoProduct';
 import { useOutletContext } from 'react-router-dom';
-import Cart from './components/Cart'
 
 const menu = {
     foodsMenu: [
@@ -42,6 +41,8 @@ const menu = {
 }
 
 const Home = () => {
+
+    console.log(JSON.stringify(menu))
 
     const [open, setOpen] = useState(false);
     const [modalInfo, setModalInfo] = useState(null)
@@ -137,9 +138,7 @@ const Home = () => {
                         Producto agregado correctamente
                     </Alert>
                 </Snackbar>
-                <Cart
-                    state={cartState}
-                    setState={setCartState} />
+             
             </Stack>
         </Stack>
     )

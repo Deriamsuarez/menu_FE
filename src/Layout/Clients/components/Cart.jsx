@@ -4,6 +4,7 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { padding, Stack } from '@mui/system';
+import OrdersCardInCart from './OrdersCardInCart';
 
 
 const Cart = ({ state, setState }) => {
@@ -90,7 +91,10 @@ const Cart = ({ state, setState }) => {
 
                 {list('right')}
 
-                <Stack sx={{ mx: '2em', my: '3em', gap: '1em' }}>
+                <Stack sx={{ mx: '2em', my: '1em', gap: '1em' }}>
+
+                    <OrdersCardInCart setCartState={setState}/>
+
                     <Divider />
                     <Stack sx={{ gap: '0.1em' }}>
                         <Stack direction='row' alignItems='center' justifyContent='space-between'>
