@@ -3,46 +3,11 @@ import { Alert, Snackbar, Stack, Tab, Tabs } from '@mui/material'
 import SectionMenu from './components/SectionMenu';
 import ModalInfoProduct from './components/ModalInfoProduct';
 import { useOutletContext } from 'react-router-dom';
+import menu from '../../utils/menu';
+import cartProducts from '../../utils/cartProducts';
 
-const menu = {
-    foodsMenu: [
-        {
-            title: 'Entrada', rows: [
-                { name: 'Frozen yoghurt', price: 1523.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' },
-                { name: 'Sushi', price: 1523.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' },
-                { name: 'Hola mundo', price: 1523.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' },
-                { name: 'Ice cream sandwich', price: 23.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' }
-            ]
-        },
-
-        {
-            title: 'Juntes', rows: [
-                { name: 'Frozen yoghurt', price: 1523.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' },
-                { name: 'Sushi', price: 1523.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' },
-                { name: 'Hola mundo', price: 1523.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' },
-                { name: 'Ice cream sandwich', price: 23.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' }
-            ]
-        },
-
-        {
-            title: 'Platos', rows: [
-                { name: 'Frozen yoghurt', price: 1523.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' },
-                { name: 'Ice cream sandwich', price: 23.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' }
-            ]
-        },
-
-        {
-            title: 'Sushinis', rows: [
-                { name: 'Frozen yoghurt', price: 1523.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' },
-                { name: 'Ice cream sandwich', price: 23.01, description: 'hola mundo cuantos also tenfo en estas cosas, hace mucho ya', img: 'vite.svg' }
-            ]
-        },
-    ]
-}
 
 const Home = () => {
-
-    console.log(JSON.stringify(menu))
 
     const [open, setOpen] = useState(false);
     const [modalInfo, setModalInfo] = useState(null)
@@ -50,9 +15,27 @@ const Home = () => {
     const [openMessage, setOpenMessage] = useState(false);
     const [count, setCount, cartState, setCartState] = useOutletContext();
 
-    const addProduct = () => {
+    const addProduct = (idName) => {
         setCount(count + 1)
         setOpenMessage(true);
+        let data = {
+            name: idName.name,
+            price: idName.price,
+            img: 'https://www.tastingtable.com/img/gallery/heres-how-hamburgers-got-their-name/l-intro-1653066580.jpg',
+            amount: 1
+        }
+        
+        const productFound = cartProducts.find(product =>  product.name == idName.name)
+
+        console.log(productFound)
+
+        if( productFound){
+            idName = productFound.amount++
+        }else{
+            cartProducts.push(data)
+        }
+        
+
     }
 
     const handleClick = () => {
@@ -79,6 +62,7 @@ const Home = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
 
     return (
         <Stack>

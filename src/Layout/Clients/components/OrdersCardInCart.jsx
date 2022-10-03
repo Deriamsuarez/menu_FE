@@ -33,7 +33,7 @@ const ExpandMore = styled((props) => {
 }));
 
 
-const OrdersCardInCart = ({setCartState}) => {
+const OrdersCardInCart = ({setCartState, product}) => {
     const [expanded, setExpanded] = useState(false);
 
     const navigate = useNavigate()

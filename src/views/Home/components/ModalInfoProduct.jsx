@@ -13,9 +13,9 @@ const styleCardModal = {
 const ModalInfoProduct = ({ handleClose, modalInfo, handleClick, open, addProduct }) => {
 
 
-    const addElement = () => {
+    const addElement = (id) => {
         handleClick();
-        addProduct();
+        addProduct(id);
     }
 
 
@@ -49,7 +49,7 @@ const ModalInfoProduct = ({ handleClose, modalInfo, handleClick, open, addProduc
                         </Typography>
                     </CardContent>
                     <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button onClick={addElement} size="small">Agregar</Button>
+                        <Button onClick={() => addElement(modalInfo)} size="small">Agregar</Button>
                         <Typography variant="subtitle2" component="div" color='success.main' textAlign='right' maxWidth='70px' sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             ${modalInfo?.price}
                         </Typography>

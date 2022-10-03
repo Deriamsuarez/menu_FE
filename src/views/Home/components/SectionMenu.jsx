@@ -46,7 +46,7 @@ const SectionMenu = ({ section, handleOpen, addProduct }) => {
                                 </TableCell>
                                 <TableCell align="center">{row.price}</TableCell>
                                 <TableCell align="center">
-                                    <Button onClick={addProduct} variant="contained">
+                                    <Button onClick={ ()=> addProduct(row) } variant="contained">
                                         Agregar
                                     </Button>
 

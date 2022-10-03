@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Alert, AlertTitle, Avatar, Box, Button, Divider, Drawer, List, ListItem, ListItemAvatar, ListItemText, TextField, Typography } from '@mui/material'
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { padding, Stack } from '@mui/system';
 import OrdersCardInCart from './OrdersCardInCart';
+import cartProducts from '../../../utils/cartProducts';
 
 
 const Cart = ({ state, setState }) => {
 
     const [addInfo, setAddInfo] = useState('none')
     const [rotate, setRotate] = useState('rotate(180deg)')
+    const [productsInCart, setProductsInCart] = useState(cartProducts)
+    const [ordersCreated, setOrdersCreated] = useState()
 
     const closeAddCountInfo = () => {
         if (addInfo == '') {
@@ -23,53 +26,65 @@ const Cart = ({ state, setState }) => {
         }
     }
 
+    const deleteProductInCart = (idName) => {
+
+        const productFound = cartProducts.find(product =>  product.name == idName.name)
+
+        if(productFound.name == idName.name){
+            cartProducts.splice(productFound)            
+        }else{
+            console.log('HOLA')
+        }
+        
+
+    }
+    console.log(ordersCreated)
+
+    useEffect(() => {
+        setProductsInCart(cartProducts)
+    }, [cartProducts])
+    
+
+    console.log(cartProducts)
+
+
+    const sendOrderToKitchen = () =>{
+
+        if(ordersCreated){
+            ordersCreated.push({
+                id:2,
+                products: ordersCreated
+            })
+        }else{
+            setOrdersCreated([{
+                id: 1,
+                products: ordersCreated
+            }])
+
+            setProductsInCart([])
+        }
+        
+    }
+console.log(ordersCreated)
     const list = (anchor) => (
         <Stack>
             <Box sx={{ padding: '0 1em', width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 300 }}>
                 <Typography variant='h5' sx={{ display: 'flex', alignItems: 'center', justifyContent: "center", marginTop: '1em', gap: '0.5em' }}><LocalMallOutlinedIcon color='primary' />Cart</Typography>
                 <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                    <ListItem>
-                        <ListItemAvatar>
-                            <Avatar>
-                                <LocalMallOutlinedIcon />
-                            </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText primary="Sushi pollo" secondary="$1,000 × 3 = $3,000" />
-                        <DeleteOutlineOutlinedIcon color='error' />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemAvatar>
-                            <Avatar>
-                                <LocalMallOutlinedIcon />
-                            </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText primary="Hamburguesa" secondary="$450 × 2 = $900" />
-                        <DeleteOutlineOutlinedIcon color='error' />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemAvatar>
-                            <Avatar>
-                                <LocalMallOutlinedIcon />
-                            </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText primary="Pina Colada" secondary="$700 × 2 = $1,400" />
-
-                        <DeleteOutlineOutlinedIcon color='error' />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemAvatar>
-                            <Avatar>
-                                <LocalMallOutlinedIcon />
-                            </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText primary="Hamburguesa" secondary="$450 × 2 = $900" />
-                        <DeleteOutlineOutlinedIcon color='error' />
-                    </ListItem>
+                    {productsInCart.map(productInCart => 
+                        <ListItem key={productInCart.name}>
+                            <ListItemAvatar>
+                                <Avatar src={productInCart.img} />
+                            </ListItemAvatar>
+                            <ListItemText primary={productInCart.name} secondary= {`$${productInCart.price} × ${productInCart.amount} = ${productInCart.price * productInCart.amount}`} />
+                            <DeleteOutlineOutlinedIcon onClick={() => deleteProductInCart(productInCart)} color='error' sx={{cursor: 'pointer'}}/>
+                        </ListItem>
+                    )}
                 </List>
             </Box>
             <Stack px='2em' sx={{ gap: '1em' }}>
                 <Divider />
-                <Button variant='outlined' color='success'>Solicitar preparacion</Button>
+                <Button onClick={sendOrderToKitchen} variant='outlined' color='success'>Solicitar preparacion</Button>
             </Stack>
         </Stack>
     );
@@ -88,13 +103,14 @@ const Cart = ({ state, setState }) => {
                     justifyContent: "space-between"
                 }}
             >
-
                 {list('right')}
 
                 <Stack sx={{ mx: '2em', my: '1em', gap: '1em' }}>
 
-                    <OrdersCardInCart setCartState={setState}/>
-
+                    {ordersCreated && ordersCreated.map(product => 
+                        
+                    <OrdersCardInCart setCartState={setState} product={product}/>
+                        )}
                     <Divider />
                     <Stack sx={{ gap: '0.1em' }}>
                         <Stack direction='row' alignItems='center' justifyContent='space-between'>
