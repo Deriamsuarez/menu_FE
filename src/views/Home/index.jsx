@@ -7,6 +7,8 @@ import menu from '../../utils/menu';
 import cartProducts from '../../utils/cartProducts';
 import Sections from './components/Sections';
 import FilterTabs from './components/FilterTabs';
+import Test from './components/Test'
+import InfoProduct from './components/InfoProduct';
 
 
 const Home = () => {
@@ -16,6 +18,7 @@ const Home = () => {
     const [foods, setFoods] = useState(menu.foodsMenu)
     const [openMessage, setOpenMessage] = useState(false);
     const [count, setCount, cartState, setCartState] = useOutletContext();
+    const [stateInfoProduct, setStateInfoProduct] = useState(false);
 
     const addProduct = (idName) => {
         setCount(count + 1)
@@ -68,9 +71,9 @@ const Home = () => {
 
     return (
         <Stack>
-          <FilterTabs/>
+            <FilterTabs />
             <Stack
-                sx={{gap: '1em'}}
+                sx={{ gap: '1em' }}
                 direction='column'
                 flexWrap='wrap'
                 justifyContent='center'
@@ -78,7 +81,7 @@ const Home = () => {
             >
 
                 {foods && foods.map(section =>
-                    <Sections section={section} />
+                    <Sections section={section} setStateInfoProduct={setStateInfoProduct} />
                 )}
                 {/* {foods && foods.map(section =>
                     <SectionMenu
@@ -97,7 +100,12 @@ const Home = () => {
                     modalInfo={modalInfo}
                     handleClick={handleClick}
                     open={open} />
+                {/* <Test/> */}
+                <InfoProduct
+                    stateInfoProduct={stateInfoProduct}
+                    setStateInfoProduct={setStateInfoProduct}
 
+                />
                 <Snackbar
                     open={openMessage}
                     autoHideDuration={3000}

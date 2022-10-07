@@ -25,14 +25,14 @@ const Header = ({ counterBag, setCounterBag, setCartState }) => {
           <Typography onClick={() => navigate('/')} variant="h6" component="div" sx={{ flexGrow: 1, cursor: 'pointer' }}>
             Food International
           </Typography>
-          <Button onClick={() => navigate('/orders')} color="inherit">
+          {/* <Button onClick={() => navigate('/orders')} color="inherit">
             <LocalDiningOutlinedIcon />
           </Button>
           <Button onClick={cartOption} color="inherit">
             <Badge badgeContent={counterBag} max={9} color="primary">
               <LocalMallOutlinedIcon />
             </Badge>
-          </Button>
+          </Button> */}
         </Toolbar>
       </AppBar>
     </Box>

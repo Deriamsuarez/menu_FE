@@ -2,7 +2,7 @@ import { Stack, Typography } from '@mui/material'
 import React from 'react'
 import ProductCard from './ProductCard'
 
-const Sections = ({section}) => {
+const Sections = ({section, setStateInfoProduct}) => {
     console.log(section)
     return (
         <Stack py='1em' sx={{display:'flex', flexWrap:'wrap', gap: '1em', width:'100%', alignItems:'center' }}>
@@ -10,7 +10,7 @@ const Sections = ({section}) => {
            <Stack display='flex' sx={{display:'flex', flexDirection: 'row', gap:'1em', justifyContent:'center', flexWrap: 'wrap'}}>
 
             {section.rows.map(product => 
-            <ProductCard product={product}/>
+            <ProductCard product={product} setStateInfoProduct={setStateInfoProduct}/>
                 )}
            </Stack>
           

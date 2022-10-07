@@ -67,7 +67,7 @@ const Cart = ({ state, setState }) => {
     }
 console.log(ordersCreated)
     const list = (anchor) => (
-        <Stack>
+        <Stack >
             <Box sx={{ padding: '0 1em', width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 300 }}>
                 <Typography variant='h5' sx={{ display: 'flex', alignItems: 'center', justifyContent: "center", marginTop: '1em', gap: '0.5em' }}><LocalMallOutlinedIcon color='primary' />Cart</Typography>
                 <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
@@ -94,13 +94,14 @@ console.log(ordersCreated)
             anchor={'right'}
             open={state['right']}
             onClose={() => setState({ right: false })}
+
         >
             <Stack
                 sx={{
                     direction: 'column',
                     maxWidth: 300,
                     height: '100%',
-                    justifyContent: "space-between"
+                    justifyContent: "space-between",
                 }}
             >
                 {list('right')}

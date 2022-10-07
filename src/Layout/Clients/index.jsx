@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Cart from './components/Cart'
 import Header from './components/Header'
-import Test from './components/Test'
+import Test from '../../views/Home/components/Test'
 import NavigationBottom from './components/NavigationBottom'
 
 
@@ -15,7 +15,7 @@ const Layout = () => {
 
 
   return (
-    <Stack>
+    <Stack pb={8}>
       <Header
         setCartState={setCartState}
         counterBag={counterBag}

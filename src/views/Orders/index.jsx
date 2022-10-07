@@ -3,7 +3,7 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 import React from 'react'
-import Test from '../../Layout/Clients/components/Test';
+import Test from '../Home/components/Test';
 
 const index = () => {
 

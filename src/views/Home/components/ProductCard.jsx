@@ -2,7 +2,12 @@ import React from 'react'
 import { Box, Button, Card, CardMedia, Typography } from '@mui/material'
 
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setStateInfoProduct }) => {
+console.log(setStateInfoProduct)
+    const moreInfoPops = () => {
+        setStateInfoProduct(true)
+    }
+
     return (
         <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '350px', padding: '1em', border: 'gray 0.1px solid', borderRadius: '8px', boxShadow: '0 .125rem .25rem rgba(0,0,0,.075)' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -34,7 +39,7 @@ const ProductCard = ({ product }) => {
 
                     </Box>
                     <Box sx={{ gap: '0.3em' }}>
-                        <Button variant='text'>Leer mas</Button>
+                        <Button onClick={moreInfoPops} variant='text'>Leer mas</Button>
                         <Button variant='outlined'>Agregar</Button>
 
                     </Box>

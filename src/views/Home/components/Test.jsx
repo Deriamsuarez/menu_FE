@@ -9,8 +9,10 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import MoreInfo from './MoreInfo';
+import { useState } from 'react';
 
-const drawerBleeding = 56;
+const drawerBleeding = 1;
 
 const Root = styled('div')(({ theme }) => ({
   height: '100%',
@@ -34,7 +36,7 @@ const Puller = styled(Box)(({ theme }) => ({
 
 function SwipeableEdgeDrawer(props) {
   const { window } = props;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(true);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -45,18 +47,17 @@ function SwipeableEdgeDrawer(props) {
 
   return (
     <Root>
-      <CssBaseline />
+      {/* <CssBaseline />
       <Global
         styles={{
-          '.MuiDrawer-root > .MuiPaper-root': {
             height: `calc(50% - ${drawerBleeding}px)`,
             overflow: 'visible',
-          },
+       
         }}
       />
       <Box sx={{ textAlign: 'center', pt: 1 }}>
         <Button onClick={toggleDrawer(true)}>Open</Button>
-      </Box>
+      </Box> */}
       <SwipeableDrawer
         container={container}
         anchor="bottom"
@@ -64,7 +65,7 @@ function SwipeableEdgeDrawer(props) {
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
         swipeAreaWidth={drawerBleeding}
-        disableSwipeToOpen={false}
+        disableSwipeToOpen={true}
         ModalProps={{
           keepMounted: false,
         }}
@@ -81,17 +82,9 @@ function SwipeableEdgeDrawer(props) {
           }}
         >
           <Puller />
-          <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
-        </StyledBox>
-        <StyledBox
-          sx={{
-            px: 2,
-            pb: 2,
-            height: '100%',
-            overflow: 'auto',
-          }}
-        >
-          <Skeleton variant="rectangular" height="100%" />
+          <Box variant='h5' sx={{ p: 2, pt: 4, color: 'text.secondary', textAlign: 'center' }}>
+            <MoreInfo />
+          </Box>
         </StyledBox>
       </SwipeableDrawer>
     </Root>
