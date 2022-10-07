@@ -5,6 +5,8 @@ import ModalInfoProduct from './components/ModalInfoProduct';
 import { useOutletContext } from 'react-router-dom';
 import menu from '../../utils/menu';
 import cartProducts from '../../utils/cartProducts';
+import Sections from './components/Sections';
+import FilterTabs from './components/FilterTabs';
 
 
 const Home = () => {
@@ -24,17 +26,17 @@ const Home = () => {
             img: 'https://www.tastingtable.com/img/gallery/heres-how-hamburgers-got-their-name/l-intro-1653066580.jpg',
             amount: 1
         }
-        
-        const productFound = cartProducts.find(product =>  product.name == idName.name)
+
+        const productFound = cartProducts.find(product => product.name == idName.name)
 
         console.log(productFound)
 
-        if( productFound){
+        if (productFound) {
             idName = productFound.amount++
-        }else{
+        } else {
             cartProducts.push(data)
         }
-        
+
 
     }
 
@@ -66,34 +68,19 @@ const Home = () => {
 
     return (
         <Stack>
-            <Tabs
-                value={0}
-                onChange={handleChange}
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
-            >
-                <Tab label="Todo" />
-                <Tab label="Entradas" />
-                <Tab label="Juntes" />
-                <Tab label="Platos" />
-                <Tab label="Sushinis" />
-                <Tab label="Bebidas" />
-                <Tab label="Postres" />
-            </Tabs>
-
+          <FilterTabs/>
             <Stack
-                p={4}
-                direction='row'
+                sx={{gap: '1em'}}
+                direction='column'
                 flexWrap='wrap'
-                gap='56.5px'
                 justifyContent='center'
-                alignContent='flex-end'
                 alignItems='flex-start'
             >
 
-
                 {foods && foods.map(section =>
+                    <Sections section={section} />
+                )}
+                {/* {foods && foods.map(section =>
                     <SectionMenu
                         setCartState={setCartState}
                         addProduct={addProduct}
@@ -101,7 +88,8 @@ const Home = () => {
                         section={section}
                         handleOpen={handleOpen}
                         setOpenMessage={setOpenMessage} />
-                )}
+                )} */}
+
 
                 <ModalInfoProduct
                     addProduct={addProduct}
@@ -122,7 +110,7 @@ const Home = () => {
                         Producto agregado correctamente
                     </Alert>
                 </Snackbar>
-             
+
             </Stack>
         </Stack>
     )

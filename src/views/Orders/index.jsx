@@ -3,6 +3,7 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 import React from 'react'
+import Test from '../../Layout/Clients/components/Test';
 
 const index = () => {
 
@@ -16,7 +17,7 @@ const index = () => {
                                 <LocalMallOutlinedIcon />
                             </Avatar>
                         </ListItemAvatar>
-                        <ListItemText primary="Sushi pollo" secondary="$1,000 × 3"/>
+                        <ListItemText primary="Sushi pollo" secondary="$1,000 × 3" />
                         <Typography variant='body1' color='success.main'><strong>$3,000</strong></Typography>
                     </ListItem>
                     <ListItem>
@@ -50,7 +51,7 @@ const index = () => {
             </Box>
             <Stack px='2em' sx={{ gap: '1em' }}>
                 <Divider />
-                <Button variant='outlined' color='success' sx={{width: '235px'}}>Solicitar Cuenta</Button>
+                <Button variant='outlined' color='success' sx={{ width: '235px' }}>Solicitar Cuenta</Button>
             </Stack>
         </Stack>
     );
@@ -66,7 +67,7 @@ const index = () => {
             alignContent='flex-end'
             alignItems='flex-start'
         >
-
+            <Test/>
             <Stack
                 position='relative'
                 overflow='hidden'
@@ -105,13 +106,13 @@ const index = () => {
                             <Typography><strong>4</strong></Typography>
                         </Stack>
                     </Stack>
-                    <Divider/>
+                    <Divider />
                     <Stack width='100%' display='flex' direction='column' justifyContent='center' alignItems='center'>
-                            <Typography variant='h6'>Order Details</Typography>
+                        <Typography variant='h6'>Order Details</Typography>
 
-                          {list()}
-                        </Stack>
-                 
+                        {list()}
+                    </Stack>
+
 
 
 
