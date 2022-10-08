@@ -5,6 +5,7 @@ import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
 import CropFreeOutlinedIcon from '@mui/icons-material/CropFreeOutlined';
 import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +24,6 @@ const NavigationBottom = ({ setCartState, counterBag, setCounterBag }) => {
     return (
         <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
             <BottomNavigation
-                showLabels
                 value={value}
                 onChange={(event, newValue) => {
                     setValue(newValue);
@@ -31,10 +31,10 @@ const NavigationBottom = ({ setCartState, counterBag, setCounterBag }) => {
             >
                 <BottomNavigationAction onClick={() => navigate('/')} icon={<HomeOutlinedIcon />} />
                 <BottomNavigationAction icon={<ReceiptLongOutlinedIcon />} />
-                <BottomNavigationAction icon={<CropFreeOutlinedIcon />} />
+                <BottomNavigationAction icon={<GroupsIcon />} />
                 <BottomNavigationAction onClick={() => navigate('/orders')} icon={<RestaurantMenuOutlinedIcon />} />
                 <Badge>
-                    <BottomNavigationAction onClick={cartOption} icon={<LocalMallOutlinedIcon />} />
+                    <BottomNavigationAction onClick={cartOption} icon={  <Badge badgeContent={counterBag} color="primary" max={9}> <LocalMallOutlinedIcon /> </Badge>} />
                 </Badge>
 
             </BottomNavigation>

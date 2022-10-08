@@ -17,7 +17,7 @@ const Home = () => {
     const [modalInfo, setModalInfo] = useState(null)
     const [foods, setFoods] = useState(menu.foodsMenu)
     const [openMessage, setOpenMessage] = useState(false);
-    const [count, setCount, cartState, setCartState] = useOutletContext();
+    const [count, setCount, cartState, setCartState, setCounterBag, counterBag] = useOutletContext();
     const [stateInfoProduct, setStateInfoProduct] = useState(false);
 
     const addProduct = (idName) => {
@@ -68,10 +68,21 @@ const Home = () => {
         setValue(newValue);
     };
 
+    const toggleDrawer = (anchor, open, product) => (event) => {
+        if (
+          event &&
+          event.type === 'keydown' &&
+          (event.key === 'Tab' || event.key === 'Shift')
+        ) {
+          return;
+        }
+        setStateInfoProduct({ bottom: stateInfoProduct, [anchor]: open });
+        setModalInfo(product)
+      };
 
     return (
         <Stack>
-            <FilterTabs />
+            <FilterTabs foods={foods} setFoods={setFoods}/>
             <Stack
                 sx={{ gap: '1em' }}
                 direction='column'
@@ -81,7 +92,15 @@ const Home = () => {
             >
 
                 {foods && foods.map(section =>
-                    <Sections section={section} setStateInfoProduct={setStateInfoProduct} />
+                    <Sections 
+                    key={section.title} 
+                    section={section} 
+                    setStateInfoProduct={setStateInfoProduct} 
+                    toggleDrawer={toggleDrawer} 
+                    setModalInfo={setModalInfo} 
+                    setCounterBag={setCounterBag}
+                    counterBag={counterBag}
+                    />
                 )}
                 {/* {foods && foods.map(section =>
                     <SectionMenu
@@ -93,7 +112,6 @@ const Home = () => {
                         setOpenMessage={setOpenMessage} />
                 )} */}
 
-
                 <ModalInfoProduct
                     addProduct={addProduct}
                     handleClose={handleClose}
@@ -101,11 +119,12 @@ const Home = () => {
                     handleClick={handleClick}
                     open={open} />
                 {/* <Test/> */}
-                <InfoProduct
+            {modalInfo &&  <InfoProduct
                     stateInfoProduct={stateInfoProduct}
                     setStateInfoProduct={setStateInfoProduct}
-
-                />
+                    toggleDrawer={toggleDrawer}
+                    product={modalInfo}
+                /> }   
                 <Snackbar
                     open={openMessage}
                     autoHideDuration={3000}

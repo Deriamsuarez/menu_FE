@@ -13,28 +13,12 @@ import MailIcon from '@mui/icons-material/Mail';
 import { Stack } from '@mui/system';
 import MoreInfo from './MoreInfo';
 
-const InfoProduct = ({stateInfoProduct, setStateInfoProduct} ) => {
-console.log(stateInfoProduct)
-      const toggleDrawer = (anchor, open) => (event) => {
-        if (
-          event &&
-          event.type === 'keydown' &&
-          (event.key === 'Tab' || event.key === 'Shift')
-        ) {
-          return;
-        }
-    
-        setStateInfoProduct({ bottom: stateInfoProduct, [anchor]: open });
-        console.log(stateInfoProduct)
-      };
-    
-  
+const InfoProduct = ({stateInfoProduct, setStateInfoProduct, toggleDrawer, product} ) => {  
 
   return (
     <Stack sx={{ backgroundColor: 'yellow', borderRadius: '20px', overflow: 'hidden' }}>
 
-        <Button onClick={toggleDrawer('bottom', true)}>{'bottom'}</Button>
-        <Stack sx={{ backgroundColor: 'yellow', borderRadius: '20px', overflow: 'hidden' }}>
+        {/* <Button onClick={toggleDrawer('bottom', true)}>{'bottom'}</Button> */}
         <SwipeableDrawer
           anchor={'bottom'}
           open={stateInfoProduct['bottom']}
@@ -42,9 +26,9 @@ console.log(stateInfoProduct)
           onOpen={toggleDrawer('bottom', true)}
           PaperProps={{ square: false, style: { borderTopLeftRadius: '1em', borderTopRightRadius: '1em' } }}
           >
-          <MoreInfo/>
+           <MoreInfo product={product}/> 
+         
         </SwipeableDrawer>
-            </Stack>
   </Stack>
   )
 }

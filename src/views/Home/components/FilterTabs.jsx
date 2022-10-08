@@ -1,12 +1,15 @@
 import { Box, Tab, Tabs } from '@mui/material';
 import React, { useState } from 'react'
+import menu from '../../../utils/menu';
 
-const FilterTabs = () => {
+const FilterTabs = ({setFoods, foods}) => {
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
+
+    console.log(menu)
   
     return (
       <Box sx={{ maxWidth: '100%', bgcolor: 'background.paper' }}>
@@ -16,15 +19,9 @@ const FilterTabs = () => {
           variant="scrollable"
           scrollButtons
           allowScrollButtonsMobile
-          aria-label="scrollable force tabs example"
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
-          <Tab label="Item Four" />
-          <Tab label="Item Five" />
-          <Tab label="Item Six" />
-          <Tab label="Item Seven" />
+          <Tab onClick={() => setFoods(menu.foodsMenu)} label='Todos'/>
+          {menu.foodsMenu.map(section => <Tab key={section.title} onClick={() => setFoods([section])} label={section.title}/>)}
         </Tabs>
       </Box>
     );

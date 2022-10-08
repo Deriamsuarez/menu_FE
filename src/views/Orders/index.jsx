@@ -67,7 +67,6 @@ const index = () => {
             alignContent='flex-end'
             alignItems='flex-start'
         >
-            <Test/>
             <Stack
                 position='relative'
                 overflow='hidden'
