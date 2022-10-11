@@ -9,6 +9,7 @@ import Sections from './components/Sections';
 import FilterTabs from './components/FilterTabs';
 import Test from './components/Test'
 import InfoProduct from './components/InfoProduct';
+import { Masonry } from '@mui/lab';
 
 
 const Home = () => {
@@ -17,17 +18,21 @@ const Home = () => {
     const [modalInfo, setModalInfo] = useState(null)
     const [foods, setFoods] = useState(menu.foodsMenu)
     const [openMessage, setOpenMessage] = useState(false);
-    const [count, setCount, cartState, setCartState, setCounterBag, counterBag] = useOutletContext();
+    const [counterBag, setCounterBag] = useOutletContext();
     const [stateInfoProduct, setStateInfoProduct] = useState(false);
 
-    const addProduct = (idName) => {
-        setCount(count + 1)
+    console.log(counterBag)
+
+
+    const addProduct = (idName, amount) => {
+        setCounterBag(counterBag + 1)
         setOpenMessage(true);
+
         let data = {
             name: idName.name,
             price: idName.price,
             img: 'https://www.tastingtable.com/img/gallery/heres-how-hamburgers-got-their-name/l-intro-1653066580.jpg',
-            amount: 1
+            amount
         }
 
         const productFound = cartProducts.find(product => product.name == idName.name)
@@ -35,11 +40,10 @@ const Home = () => {
         console.log(productFound)
 
         if (productFound) {
-            idName = productFound.amount++
+            idName = productFound.amount + amount
         } else {
             cartProducts.push(data)
         }
-
 
     }
 
@@ -80,6 +84,8 @@ const Home = () => {
         setModalInfo(product)
       };
 
+      console.log(cartProducts)
+
     return (
         <Stack>
             <FilterTabs foods={foods} setFoods={setFoods}/>
@@ -102,6 +108,7 @@ const Home = () => {
                     counterBag={counterBag}
                     />
                 )}
+
                 {/* {foods && foods.map(section =>
                     <SectionMenu
                         setCartState={setCartState}
@@ -112,19 +119,21 @@ const Home = () => {
                         setOpenMessage={setOpenMessage} />
                 )} */}
 
-                <ModalInfoProduct
+                {/* <ModalInfoProduct
                     addProduct={addProduct}
                     handleClose={handleClose}
                     modalInfo={modalInfo}
                     handleClick={handleClick}
-                    open={open} />
-                {/* <Test/> */}
-            {modalInfo &&  <InfoProduct
+                    open={open} /> */
+                }
+
+            <InfoProduct
                     stateInfoProduct={stateInfoProduct}
                     setStateInfoProduct={setStateInfoProduct}
                     toggleDrawer={toggleDrawer}
                     product={modalInfo}
-                /> }   
+                    addProduct={addProduct}
+                />   
                 <Snackbar
                     open={openMessage}
                     autoHideDuration={3000}

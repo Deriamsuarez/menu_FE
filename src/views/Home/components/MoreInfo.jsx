@@ -2,9 +2,17 @@ import { Box, Button, ButtonGroup, Card, CardActionArea, CardContent, CardMedia,
 import { Stack } from '@mui/system'
 import React, {useState} from 'react'
 
-const MoreInfo = ({ toggleDrawer, product }) => {
+const MoreInfo = ({ toggleDrawer, product, addProduct }) => {
 
   const [count, setCount] = useState(1)
+
+  const handleAddProduct = (product) => {
+    addProduct(product, count)
+    setCount(1)
+  }
+
+
+
   return (
     <Stack p={4} >
 
@@ -71,7 +79,7 @@ const MoreInfo = ({ toggleDrawer, product }) => {
         size="small"
         sx={{ my: '1em' }}
       />
-      <Button variant='contained' color='success'>Agregar</Button>
+      <Button onClick={() => handleAddProduct(product)} variant='contained' color='success'>Agregar</Button>
 
     </Stack>
   )

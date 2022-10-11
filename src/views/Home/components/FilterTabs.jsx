@@ -9,7 +9,7 @@ const FilterTabs = ({setFoods, foods}) => {
       setValue(newValue);
     };
 
-    console.log(menu)
+    // console.log(menu)
   
     return (
       <Box sx={{ maxWidth: '100%', bgcolor: 'background.paper' }}>

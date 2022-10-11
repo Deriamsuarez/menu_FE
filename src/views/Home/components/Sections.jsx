@@ -3,7 +3,6 @@ import React from 'react'
 import ProductCard from './ProductCard'
 
 const Sections = ({section, setStateInfoProduct, toggleDrawer, setModalInfo, setCounterBag, counterBag}) => {
-
     return (
         <Stack py='1em' sx={{display:'flex', flexWrap:'wrap', gap: '1em', width:'100%', alignItems:'center'}}>
             <Typography variant='h5'><strong>{section.title}</strong></Typography>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
@@ -12,24 +12,26 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Stack } from '@mui/system';
 import MoreInfo from './MoreInfo';
+import { Skeleton } from '@mui/material';
 
-const InfoProduct = ({stateInfoProduct, setStateInfoProduct, toggleDrawer, product} ) => {  
+const InfoProduct = ({ stateInfoProduct, setStateInfoProduct, toggleDrawer, product, addProduct }) => {
 
+  console.log(stateInfoProduct)
   return (
     <Stack sx={{ backgroundColor: 'yellow', borderRadius: '20px', overflow: 'hidden' }}>
 
-        {/* <Button onClick={toggleDrawer('bottom', true)}>{'bottom'}</Button> */}
-        <SwipeableDrawer
-          anchor={'bottom'}
-          open={stateInfoProduct['bottom']}
-          onClose={toggleDrawer('bottom', false)}
-          onOpen={toggleDrawer('bottom', true)}
-          PaperProps={{ square: false, style: { borderTopLeftRadius: '1em', borderTopRightRadius: '1em' } }}
-          >
-           <MoreInfo product={product}/> 
-         
-        </SwipeableDrawer>
-  </Stack>
+      <SwipeableDrawer
+        anchor={'bottom'}
+        open={stateInfoProduct['bottom']}
+        onClose={toggleDrawer('bottom', false)}
+        onOpen={toggleDrawer('bottom', true)}
+        PaperProps={{ square: false, style: { borderTopLeftRadius: '1em', borderTopRightRadius: '1em' } }}
+      >
+        {product && <MoreInfo product={product} addProduct={addProduct} />}
+
+
+      </SwipeableDrawer>
+    </Stack>
   )
 }
 

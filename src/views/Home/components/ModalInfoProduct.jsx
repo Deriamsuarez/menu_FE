@@ -16,6 +16,7 @@ const ModalInfoProduct = ({ handleClose, modalInfo, handleClick, open, addProduc
     const addElement = (id) => {
         handleClick();
         addProduct(id);
+        console.log(id)
     }
 
 
