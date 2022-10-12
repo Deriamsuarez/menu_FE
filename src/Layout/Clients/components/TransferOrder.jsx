@@ -127,7 +127,7 @@ const TransferOrder = () => {
     );
   
     return (
-      <Grid container spacing={2} justifyContent="center" alignItems="center">
+      <Grid container spacing={2} justifyContent="center" alignItems="center" maxHeight={500} overflow='scroll' >
         <Grid item>{customList('Choices', left)}</Grid>
         <Grid item>
           <Grid container direction="row" alignItems="center" sx={{gap: '1em'}}>

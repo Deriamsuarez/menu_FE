@@ -18,7 +18,7 @@ const NavigationBottom = ({ setCartState, counterBag, setCounterBag }) => {
         setCartState({ right: true })
     }
 
-    const navigate  = useNavigate()
+    const navigate = useNavigate()
 
 
     return (
@@ -34,7 +34,7 @@ const NavigationBottom = ({ setCartState, counterBag, setCounterBag }) => {
                 <BottomNavigationAction icon={<GroupsIcon />} />
                 <BottomNavigationAction onClick={() => navigate('/orders')} icon={<RestaurantMenuOutlinedIcon />} />
                 <Badge>
-                    <BottomNavigationAction onClick={cartOption} icon={  <Badge badgeContent={counterBag} color="primary" max={9}> <LocalMallOutlinedIcon /> </Badge>} />
+                    <BottomNavigationAction onClick={cartOption} icon={<Badge badgeContent={counterBag} color="primary" max={9}> <LocalMallOutlinedIcon /> </Badge>} />
                 </Badge>
 
             </BottomNavigation>

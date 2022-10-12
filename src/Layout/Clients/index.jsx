@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import Cart from './components/Cart'
 import Header from './components/Header'
-import Test from '../../views/Home/components/Test'
+import Test from '../../views/Clients/Home/components/Test'
 import NavigationBottom from './components/NavigationBottom'
 
 
@@ -33,7 +33,6 @@ const Layout = () => {
           counterBag={counterBag}
           setCounterBag={setCounterBag}
         />
-        {/* <Test/> */}
       </Stack>
     )
   }else{

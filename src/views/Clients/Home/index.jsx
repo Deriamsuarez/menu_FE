@@ -3,8 +3,8 @@ import { Alert, Snackbar, Stack, Tab, Tabs } from '@mui/material'
 import SectionMenu from './components/SectionMenu';
 import ModalInfoProduct from './components/ModalInfoProduct';
 import { useOutletContext } from 'react-router-dom';
-import menu from '../../utils/menu';
-import cartProducts from '../../utils/cartProducts';
+import menu from '../../../utils/menu'
+import cartProducts from '../../../utils/cartProducts';
 import Sections from './components/Sections';
 import FilterTabs from './components/FilterTabs';
 import Test from './components/Test'

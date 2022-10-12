@@ -1,6 +1,6 @@
 import { Box, Tab, Tabs } from '@mui/material';
 import React, { useState } from 'react'
-import menu from '../../../utils/menu';
+import menu from '../../../../utils/menu';
 
 const FilterTabs = ({setFoods, foods}) => {
     const [value, setValue] = useState(0);
