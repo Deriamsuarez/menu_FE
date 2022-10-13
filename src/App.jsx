@@ -5,6 +5,7 @@ import Home from './views/Clients/Home'
 import Login from './views/Clients/Login'
 import Orders from './views/Clients/Orders'
 import Dashboard from './views/Admin/Dashboard'
+import AdminLayout from './Layout/Admin'
 
 function App() {
 
@@ -15,7 +16,9 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/orders' element={<Orders />} />
       </Route>
+      <Route element={<AdminLayout/>}>
         <Route path='/dashboard' element={<Dashboard/>}/>
+      </Route>
     </Routes>
   )
 }
