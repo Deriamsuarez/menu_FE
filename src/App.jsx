@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import ClientLayout from './Layout/Clients'
-import AdminLayout from './Layout/Admin'
 import Home from './views/Clients/Home'
 import Login from './views/Clients/Login'
 import Orders from './views/Clients/Orders'
 import Dashboard from './views/Admin/Dashboard'
+import AdminLayout from './Layout/Admin'
 
 function App() {
 
