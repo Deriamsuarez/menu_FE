@@ -5,7 +5,7 @@ import Home from './views/Clients/Home'
 import Login from './views/Clients/Login'
 import Orders from './views/Clients/Orders'
 import Dashboard from './views/Admin/Dashboard'
-import Admin from './Layout/Admin'
+import Admin from './Layout/Admin/Admin'
 
 function App() {
 
