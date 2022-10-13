@@ -88,7 +88,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
+const AdminLayout = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -163,3 +163,5 @@ export default function MiniDrawer() {
     </Box>
   );
 }
+
+export default AdminLayout

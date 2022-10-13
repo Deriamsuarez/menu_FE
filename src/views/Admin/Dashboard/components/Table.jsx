@@ -43,7 +43,7 @@ const Table = () => {
             rows={rows}
             columns={columns}
             pageSize={7}
-            rowsPerPageOptions={[5]}
+            rowsPerPageOptions={[7]}
             checkboxSelection
           />
         </Stack>
