@@ -12,16 +12,7 @@ const columns = [
   { field: 'status', headerName: 'Estado', width: 150},
   { field: 'employee', headerName: 'Camarero', width: 200},
   { field: 'actions', headerName: 'Acciones', width: 150},
-//   { field: 'amount', headerName: 'Total', type: 'number', width: 90},
-    //   {
-    //     field: 'fullName',
-    //     headerName: 'Full name',
-    //     description: 'This column has a value getter and is not sortable.',
-    //     sortable: false,
-    //     width: 160,
-    //     valueGetter: (params) =>
-    //       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-//   },
+
 ];
 
 const rows = [
@@ -51,4 +42,17 @@ const Table = () => {
       );
 }
 
-export default Table
+export default Table;
+
+
+
+//   { field: 'amount', headerName: 'Total', type: 'number', width: 90},
+    //   {
+    //     field: 'fullName',
+    //     headerName: 'Full name',
+    //     description: 'This column has a value getter and is not sortable.',
+    //     sortable: false,
+    //     width: 160,
+    //     valueGetter: (params) =>
+    //       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+//   },

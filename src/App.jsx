@@ -7,6 +7,7 @@ import Orders from './views/Clients/Orders'
 import Dashboard from './views/Admin/Dashboard'
 import Admin from './Layout/Admin'
 import Products from './views/Admin/Products'
+import Profiles from './views/Admin/Profiles'
 
 function App() {
 
@@ -17,9 +18,10 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/orders' element={<Orders />} />
       </Route>
-      <Route element={<Admin/>}>
-        <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/products' element={<Products/>}/>
+      <Route element={<Admin />}>
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/profiles' element={<Profiles />} />
       </Route>
     </Routes>
   )

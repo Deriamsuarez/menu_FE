@@ -5,6 +5,7 @@ import FastfoodOutlinedIcon from '@mui/icons-material/FastfoodOutlined';
 import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
 import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import { NavLink } from 'react-router-dom';
 
 const style = {
@@ -53,11 +54,8 @@ const SideBar = ({ state, setState, toggleDrawer }) => {
                             isActive ? style.activeStyle : style.noActiveStyle
                         }
                     >
-                      
                         <DashboardOutlinedIcon />
-                      
                     </NavLink>
-
                 <NavLink
                     to="products"
                     style={({ isActive }) =>
@@ -73,6 +71,14 @@ const SideBar = ({ state, setState, toggleDrawer }) => {
                     }
                 >
                     <ReceiptLongOutlinedIcon />
+                </NavLink>
+                <NavLink
+                    to="profiles"
+                    style={({ isActive }) =>
+                        isActive ? style.activeStyle : style.noActiveStyle
+                    }
+                >
+                    <GroupsOutlinedIcon />
                 </NavLink>
                 <NavLink
                     to="configuration"
