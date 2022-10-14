@@ -5,7 +5,7 @@ import Table from './components/Table'
 
 const Dashboard = () => {
   return (
-    <Stack spacing={2}>
+    <Stack spacing={4}>
         <Typography variant='h4'><strong>Dashboard</strong></Typography>
         <Resume/>
         <Table/>

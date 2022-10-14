@@ -6,6 +6,7 @@ import Login from './views/Clients/Login'
 import Orders from './views/Clients/Orders'
 import Dashboard from './views/Admin/Dashboard'
 import Admin from './Layout/Admin'
+import Products from './views/Admin/Products'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       </Route>
       <Route element={<Admin/>}>
         <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/products' element={<Products/>}/>
       </Route>
     </Routes>
   )
