@@ -23,7 +23,7 @@ const AdminLayout = () => {
 
 
   return (
-    <Stack pr={4} sx={{ display: 'flex', maxHeight: '100vh'}}>
+    <Stack pr={4} sx={{ display: 'flex', maxHeight: '100vh', overflow: 'scroll'}}>
       <Header toggleDrawer={toggleDrawer} />
       <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
         <Stack >

@@ -49,7 +49,7 @@ const SideBar = ({ state, setState, toggleDrawer }) => {
             <Stack spacing={4} sx={{ display: 'flex', justifyContent: 'center' }}>
              
                     <NavLink
-                        to="dashboard"
+                        to="admin/dashboard"
                         style={({ isActive }) =>
                             isActive ? style.activeStyle : style.noActiveStyle
                         }
@@ -57,7 +57,7 @@ const SideBar = ({ state, setState, toggleDrawer }) => {
                         <DashboardOutlinedIcon />
                     </NavLink>
                 <NavLink
-                    to="products"
+                    to="admin/products"
                     style={({ isActive }) =>
                         isActive ? style.activeStyle : style.noActiveStyle
                     }
@@ -65,7 +65,7 @@ const SideBar = ({ state, setState, toggleDrawer }) => {
                     <FastfoodOutlinedIcon />
                 </NavLink>
                 <NavLink
-                    to="bills"
+                    to="admin/bills"
                     style={({ isActive }) =>
                         isActive ? style.activeStyle : style.noActiveStyle
                     }
@@ -73,7 +73,7 @@ const SideBar = ({ state, setState, toggleDrawer }) => {
                     <ReceiptLongOutlinedIcon />
                 </NavLink>
                 <NavLink
-                    to="profiles"
+                    to="admin/profiles"
                     style={({ isActive }) =>
                         isActive ? style.activeStyle : style.noActiveStyle
                     }
@@ -81,7 +81,7 @@ const SideBar = ({ state, setState, toggleDrawer }) => {
                     <GroupsOutlinedIcon />
                 </NavLink>
                 <NavLink
-                    to="configuration"
+                    to="admin/configuration"
                     style={({ isActive }) =>
                         isActive ? style.activeStyle : style.noActiveStyle
                     }
