@@ -3,7 +3,7 @@ import React from 'react'
 
 const OrderResume = () => {
     return (
-        <Stack sx={{ border: '0.5px solid gray', padding: '1em', minWidth: '270px', maxWidth: '350px', borderRadius: '0.5em', boxShadow: ' .25rem .25rem 0 rgba(0,0,0,.1)' }}>
+        <Stack sx={{ border: '0.5px solid gray', padding: '1em', minWidth: '270px', maxWidth: '350px', borderRadius: '0.5em', boxShadow: ' .25rem .25rem 0 rgba(0,0,0,.1)', cursor: 'pointer' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
                     <Typography variant='body'><strong>Orden #4563</strong> </Typography>

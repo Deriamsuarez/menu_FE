@@ -35,8 +35,8 @@ const ProductCard = ({ product, setStateInfoProduct, toggleDrawer, setModalInfo,
 
                     </Box>
                     <Box sx={{ gap: '0.3em' }}>
-                        <Button onClick={toggleDrawer('bottom', true, product)} variant='text'>Leer mas</Button>
-                        <Button onClick={() => setCounterBag(counterBag + 1)} variant='outlined'>Agregar</Button>
+                        <Button onClick={toggleDrawer('bottom', true, product)} color='warning' variant='text'>Leer mas</Button>
+                        <Button onClick={() => setCounterBag(counterBag + 1)} color='error' variant='outlined'>Agregar</Button>
 
                     </Box>
                 </Box>

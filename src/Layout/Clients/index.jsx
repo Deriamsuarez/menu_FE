@@ -17,22 +17,25 @@ const Layout = () => {
 
   if(logged){
     return (
-      <Stack pb={8}>
+      <Stack pt={2} pb={4} sx={{maxHeight: '100vh', overflow: 'scroll'}}>
         <Header
           // setCartState={setCartState}
           counterBag={counterBag}
           setCounterBag={setCounterBag}
         />
+
         <Cart
           state={cartState}
           setState={setCartState}
-        />
+          />
+          <Stack mt={6} >
         <Outlet context={[counterBag, setCounterBag, cartState, setCartState]} />
+        </Stack>
         <NavigationBottom
           setCartState={setCartState}
           counterBag={counterBag}
           setCounterBag={setCounterBag}
-        />
+          />
       </Stack>
     )
   }else{
