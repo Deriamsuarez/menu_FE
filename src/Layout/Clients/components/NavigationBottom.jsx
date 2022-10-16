@@ -24,6 +24,7 @@ const NavigationBottom = ({ setCartState, counterBag, setCounterBag }) => {
     return (
         <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
             <BottomNavigation
+                color='warning'
                 value={value}
                 onChange={(event, newValue) => {
                     setValue(newValue);
@@ -34,7 +35,7 @@ const NavigationBottom = ({ setCartState, counterBag, setCounterBag }) => {
                 <BottomNavigationAction icon={<GroupsIcon />} />
                 <BottomNavigationAction onClick={() => navigate('/orders')} icon={<RestaurantMenuOutlinedIcon />} />
                 <Badge>
-                    <BottomNavigationAction onClick={cartOption} icon={<Badge badgeContent={counterBag} color="primary" max={9}> <LocalMallOutlinedIcon /> </Badge>} />
+                    <BottomNavigationAction onClick={cartOption} icon={<Badge badgeContent={counterBag} color="error" max={9}> <LocalMallOutlinedIcon /> </Badge>} />
                 </Badge>
 
             </BottomNavigation>

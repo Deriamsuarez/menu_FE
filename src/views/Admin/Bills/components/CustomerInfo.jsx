@@ -19,8 +19,8 @@ const CustomerInfo = () => {
                     <Typography variant="body" color="initial"><strong>Deriam Suarez</strong></Typography>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Typography variant="overline" color="initial">Payment</Typography>
-                    <Typography variant="body" color="initial"><strong>By Cash</strong></Typography>
+                    <Typography variant="overline" color="initial">Subtotal</Typography>
+                    <Typography variant="body" color="initial"><strong>4,800.00</strong></Typography>
                 </Box>
             </Box>
         </Stack>

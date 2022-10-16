@@ -20,7 +20,7 @@ const Header = ({ counterBag, setCounterBag, setCartState }) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar component='nav' position="sticky" sx={{ backgroundColor: '#1d3557', minWidth: '100px' }} >
+      <AppBar component='nav' sx={{ position:"fixed", top: 0, backgroundColor: 'warning.light', minWidth: '100px' }} >
         <Toolbar>
           <Typography onClick={() => navigate('/')} variant="h6" component="div" sx={{ flexGrow: 1, cursor: 'pointer' }}>
             Food International
