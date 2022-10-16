@@ -1,17 +1,27 @@
 import React from 'react'
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridActionsCellItem } from '@mui/x-data-grid';
 import { Stack } from '@mui/material';
+import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 const columns = [
   { field: 'no', headerName: 'NO', width: 70 },
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'date', headerName: 'Fecha', width: 150 },
   { field: 'customer', headerName: 'Cliente', width: 200 },
-  { field: 'email', headerName: 'Email', width: 200},
-  { field: 'amount', headerName: 'Total', width: 150},
-  { field: 'status', headerName: 'Estado', width: 150},
-  { field: 'employee', headerName: 'Camarero', width: 200},
-  { field: 'actions', headerName: 'Acciones', width: 150},
+  { field: 'email', headerName: 'Email', width: 200 },
+  { field: 'amount', headerName: 'Total', width: 150 },
+  { field: 'status', headerName: 'Estado', width: 150 },
+  { field: 'employee', headerName: 'Camarero', width: 200 },
+  {
+    field: 'actions', headerName: 'Acciones', width: 150,
+    type: 'actions',
+
+    getActions: () => [
+      <GridActionsCellItem icon={<ModeEditOutlinedIcon />} label="Edit" />,
+      <GridActionsCellItem icon={<DeleteOutlineOutlinedIcon />} label="Delete" />
+]
+}
 
 ];
 
@@ -29,17 +39,17 @@ const rows = [
 
 
 const Table = () => {
-    return (
-        <Stack sx={{ height: 470, width: '100%', backdropFilter: 'shadow(.25rem .25rem 0 rgba(0,0,0,.1)) '  }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={7}
-            rowsPerPageOptions={[7]}
-            checkboxSelection
-          />
-        </Stack>
-      );
+  return (
+    <Stack sx={{ height: 470, width: '100%', backdropFilter: 'shadow(.25rem .25rem 0 rgba(0,0,0,.1)) ' }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={7}
+        rowsPerPageOptions={[7]}
+        // checkboxSelection
+      />
+    </Stack>
+  );
 }
 
 export default Table;
