@@ -40,7 +40,7 @@ const rows = [
 
 const Table = () => {
   return (
-    <Stack sx={{ height: 470, width: '100%', backdropFilter: 'shadow(.25rem .25rem 0 rgba(0,0,0,.1)) ' }}>
+    <Stack sx={{ height: 470, flex: 1, minWidth: 500, backdropFilter: 'shadow(.25rem .25rem 0 rgba(0,0,0,.1)) ' }}>
       <DataGrid
         rows={rows}
         columns={columns}
