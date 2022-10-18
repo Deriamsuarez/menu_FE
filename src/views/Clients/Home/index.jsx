@@ -90,7 +90,7 @@ const Home = () => {
         <Stack>
             <FilterTabs foods={foods} setFoods={setFoods}/>
             <Stack
-                sx={{ gap: '1em' }}
+                sx={{ gap: '2em' }}
                 direction='column'
                 flexWrap='wrap'
                 justifyContent='center'

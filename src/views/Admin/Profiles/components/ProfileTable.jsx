@@ -2,12 +2,14 @@ import { Stack } from '@mui/material'
 import { DataGrid, GridActionsCellItem } from '@mui/x-data-grid'
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const ProfileTable = () => {
 
  const  navigate = useNavigate()
+
     const columns = [
         { field: 'no', headerName: 'NO', width: 70 },
         { field: 'id', headerName: 'ID', width: 70 },
@@ -20,7 +22,9 @@ const ProfileTable = () => {
             field: 'actions', headerName: 'Acciones', width: 150,
             type: 'actions',
             getActions: () => [
+
               <GridActionsCellItem icon={<ModeEditOutlineOutlinedIcon />}  onClick={()=>navigate('/admin/editprofile')} label="Edit" />,
+
               <GridActionsCellItem icon={<DeleteForeverOutlinedIcon />} label="Delete" />
         ]
         }

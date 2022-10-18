@@ -5,15 +5,15 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 
 const style = {
-    
+
     boxSecond: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: '1em'
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1em'
     }
 
-  }
+}
 
 const Profiles = () => {
     return (
@@ -21,11 +21,11 @@ const Profiles = () => {
             <Typography variant='h4'><strong>Perfiles</strong></Typography>
             <ProfileTable />
             <Box sx={style.boxSecond}>
-            <Fab position= "fixed" color="primary" aria-label="add" sx={{position: 'absolute', right: 50, bottom: 50}}>
-                <AddOutlinedIcon />
-            </Fab>
+                <Fab position="fixed" color="primary" aria-label="add" sx={{ position: 'absolute', right: 50, bottom: 50 }}>
+                    <AddOutlinedIcon />
+                </Fab>
             </Box>
-        
+
         </Stack>
     )
 }
