@@ -1,6 +1,6 @@
 import { Stack, Typography, Fab, Box } from '@mui/material'
 import React from 'react'
-import ProfileTable from './ProfileTable'
+import ProfileTable from './components/ProfileTable'
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 

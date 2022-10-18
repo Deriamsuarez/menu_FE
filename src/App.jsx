@@ -9,6 +9,8 @@ import Admin from './Layout/Admin'
 import Products from './views/Admin/Products'
 import Profiles from './views/Admin/Profiles'
 import Bills from './views/Admin/Bills'
+import MainProfile from './views/Admin/Profiles/components/MainProfile'
+import PersonalInfo from './views/Admin/Profiles/components/PersonalInfo'
 
 function App() {
 
@@ -23,6 +25,7 @@ function App() {
         <Route path='admin/dashboard' element={<Dashboard />} />
         <Route path='admin/products' element={<Products />} />
         <Route path='admin/profiles' element={<Profiles />} />
+        <Route path='admin/editprofile' element={<PersonalInfo />} />
         <Route path='admin/bills' element={<Bills />} />
       </Route>
     </Routes>
