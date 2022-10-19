@@ -22,12 +22,14 @@ const Home = () => {
     const [counterBag, setCounterBag] = useOutletContext();
     const [stateInfoProduct, setStateInfoProduct] = useState(false);
 
-    console.log(counterBag)
-
 
     const addProduct = (idName, amount) => {
         setCounterBag(counterBag + 1)
         setOpenMessage(true);
+
+        console.log(amount)
+        console.log(     idName.amount)
+   
 
         let data = {
             name: idName.name,
@@ -37,10 +39,11 @@ const Home = () => {
         }
 
         const productFound = cartProducts.find(product => product.name == idName.name)
+
         console.log(productFound)
         if (productFound) {
-            idName = productFound.amount + amount
-            dispatch(setCart(inputValue))
+            idName.amount + amount
+            // dispatch(setCart(inputValue))
 
         } else {
             cartProducts.push(data)

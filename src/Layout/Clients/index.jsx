@@ -16,7 +16,9 @@ const Layout = () => {
 
   const clientLogged = useSelector(name => name.client)
 
-  if(clientLogged){
+  const test = true
+
+  if(test){
     return (
       <Stack pt={2} pb={4} sx={{maxHeight: '100vh', overflow: 'scroll'}}>
         <Header

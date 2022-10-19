@@ -22,7 +22,6 @@ const Login = () => {
     const client = useSelector(state => state.client)
 
 
-
     const submitLogin = e => {
         e.preventDefault()
         const inputValue = e.target.name.value.trim()
@@ -30,13 +29,14 @@ const Login = () => {
             dispatch(setClient(inputValue))
             navigate('/')
         }
+        
         e.target.name.value = ''
 
     }
 
     if(!client){
         return (
-            <Stack sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', overflow: 'hidden', border: '1px black dashed' }}>
+            <Stack sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', overflow: 'hidden' }}>
     
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
