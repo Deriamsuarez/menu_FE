@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import Cart from './components/Cart'
 import Header from './components/Header'
-import Test from '../../views/Clients/Home/components/Test'
 import NavigationBottom from './components/NavigationBottom'
+import { useSelector } from 'react-redux'
+
 
 
 
@@ -13,9 +14,9 @@ const Layout = () => {
   const [counterBag, setCounterBag] = useState(0)
   const [cartState, setCartState] = useState({ right: false });
 
-  const logged = true
+  const clientLogged = useSelector(name => name.client)
 
-  if(logged){
+  if(clientLogged){
     return (
       <Stack pt={2} pb={4} sx={{maxHeight: '100vh', overflow: 'scroll'}}>
         <Header

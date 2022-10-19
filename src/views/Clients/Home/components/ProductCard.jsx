@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Card, CardMedia, Typography } from '@mui/material'
 
 
-const ProductCard = ({ product, setStateInfoProduct, toggleDrawer, setModalInfo, setCounterBag, counterBag }) => {
+const ProductCard = ({ product, setStateInfoProduct, toggleDrawer, setModalInfo, setCounterBag, counterBag, addProduct }) => {
 
 
     return (
@@ -36,7 +36,7 @@ const ProductCard = ({ product, setStateInfoProduct, toggleDrawer, setModalInfo,
                     </Box>
                     <Box sx={{ gap: '0.3em' }}>
                         <Button onClick={toggleDrawer('bottom', true, product)} color='warning' variant='text'>Leer mas</Button>
-                        <Button onClick={() => setCounterBag(counterBag + 1)} color='error' variant='outlined'>Agregar</Button>
+                        <Button onClick={() => addProduct(product, 1)} color='error' variant='outlined'>Agregar</Button>
 
                     </Box>
                 </Box>

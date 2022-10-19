@@ -14,7 +14,7 @@ import { useState } from 'react';
 const style = {
     boxSecond: {
         backgroundColor: '#f8f8f7', 
-        borderRadius: '30px', 
+        borderRadius: '0.5em', 
         p: '0.5em', 
         px: '1em',  
         minWidth: 300, 
@@ -29,8 +29,6 @@ const style = {
 
   }
   
-
-  const PersonalInfo = () => {
   const location2 = [
         {
           value: 'Republica Domenicana',
@@ -42,8 +40,11 @@ const style = {
         },
         
       ];
+
+  const PersonalInfo = () => {
       
      const [location, setLocation] = useState('DO')
+     const [hidden, setHidden] = useState(false)
       
      const  handleChange = (e) => {
          setLocation({value: e.target.value});
@@ -51,7 +52,10 @@ const style = {
   return (
 
       <Stack sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '2em', justifyContent: 'center', }}>
-          <MainProfile />
+          <MainProfile hidden={hidden} setHidden={setHidden} />
+
+          {
+          hidden &&
           <Box sx={style.boxSecond}>
               <Typography variant='h6' align='justify'>Informacion Personal</Typography>
               <FormControl >
@@ -130,10 +134,11 @@ const style = {
 
               </Box>
 
-              <Button fullWidth variant='contained' color="primary" sx={{mt:'20px'}}>Guardar Cambios</Button>
+              <Button onClick={() => setHidden(false)} fullWidth variant='contained' color="primary" sx={{mt:'20px'}}>Guardar Cambios</Button>
               </FormControl>
 
-          </Box>
+          </Box> 
+          }
 
       </Stack>
   )

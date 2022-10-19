@@ -9,7 +9,7 @@ import React from 'react'
 const style = {
     boxSecond: {
         backgroundColor: '#f8f8f7', 
-        borderRadius: '1em', 
+        borderRadius: '0.5em', 
         p: '2em', 
         width: '300px',
         height: 500,
@@ -23,18 +23,20 @@ const style = {
 
   }
 
-const MainProfile = () => {
+const MainProfile = ({hidden, setHidden}) => {
     return (
         <Box sx={style.boxSecond}>
+          <Box sx={{position: 'relative'}}>
               <CardMedia
              sx={{ width: "150px", backgroundColor: 'white', borderRadius:'50%' }}
              component="img"
              alt="qr"
              image="profile.png"
            />
-             <Fab position= "stick" color="primary" aria-label="edit" size='small' sx={{position: 'absolute', right: 820, top: 215}}>
+             <Fab onClick={()=> setHidden(!hidden)} color="primary" aria-label="edit" size='small' sx={{position: 'absolute', right: 0, bottom: 0}}>
                 <ModeEditOutlineOutlinedIcon />
             </Fab>
+          </Box>
            <Typography variant='h5'>Anmy Moreno</Typography>
            <Typography variant='subtitle1' sx={{color:'#CDCDCD'}}>Admin</Typography>
            <Box sx={{ borderBottom:'1px solid #CDCDCD', display:'flex', width:'300px', height:'80px', boxShadow: '0px 0.8px 0.8px -6px black'}}>
