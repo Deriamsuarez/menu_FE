@@ -39,8 +39,7 @@ const Home = () => {
         const productFound = cartProducts.find(product => product.name == idName.name)
         console.log(productFound)
         if (productFound) {
-            idName = productFound.amount + amount
-            dispatch(setCart(inputValue))
+            productFound.amount = productFound.amount + amount
 
         } else {
             cartProducts.push(data)

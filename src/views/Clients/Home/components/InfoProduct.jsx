@@ -16,8 +16,7 @@ import { Skeleton } from '@mui/material';
 
 const InfoProduct = ({ stateInfoProduct, setStateInfoProduct, toggleDrawer, product, addProduct }) => {
 
-  console.log(stateInfoProduct)
-  return (
+    return (
     <Stack sx={{ backgroundColor: 'yellow', borderRadius: '20px', overflow: 'hidden' }}>
 
       <SwipeableDrawer
