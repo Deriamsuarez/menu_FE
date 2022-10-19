@@ -8,14 +8,14 @@ const OrderDetails = () => {
         <Stack spacing={2} sx={{ flex: 1, backgroundColor: '#f8f8f7', borderRadius: '1em', p: '2em' }}>
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Typography variant='h6' >Order #4356</Typography>
-                <Box sx={{ p: '0.5em', px: '1em', borderRadius: '30px', backgroundColor: 'success.main', minWidth: 100, textAlign: 'center' }}>
+                <Box sx={{ p: '0.5em', borderRadius: '30px', backgroundColor: 'success.light', minWidth: 100, textAlign: 'center' }}>
                     <Typography variant='body' color='white'><strong>Active</strong></Typography>
                 </Box>
             </Box>
             <Divider />
             <CustomerInfo />
             <OrderInfo />
-            <Button variant='contained' color='success'>Cerrar cuenta</Button>
+            <Button variant='contained' color='error' >Cerrar cuenta</Button>
 
         </Stack>
     )
