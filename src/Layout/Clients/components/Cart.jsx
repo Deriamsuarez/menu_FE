@@ -11,7 +11,7 @@ import AddCart from './AddCart';
 const Cart = ({ state, setState }) => {
 
     const [productsInCart, setProductsInCart] = useState(cartProducts)
-    const [ordersCreated, setOrdersCreated] = useState()
+    const [ordersCreated, setOrdersCreated] = useState([])
 
 
     useEffect(() => {
@@ -21,15 +21,13 @@ const Cart = ({ state, setState }) => {
     const sendOrderToKitchen = () => {
 
         if (ordersCreated) {
-            ordersCreated.push({
-                id: 2,
-                products: ordersCreated
-            })
+            ordersCreated.push(
+                
+            )
         } else {
-            setOrdersCreated([{
-                id: 1,
-                products: ordersCreated
-            }])
+            setOrdersCreated(
+                cartProducts
+            )
 
             setProductsInCart([])
         }
@@ -37,17 +35,9 @@ const Cart = ({ state, setState }) => {
     };
 
     const list = (anchor) => {
+
         const deleteProductInCart = (idName) => {
-
-            const productFound = cartProducts.find(product => product.name == idName.name)
-
-            if (productFound.name == idName.name) {
-                cartProducts.splice(productFound)
-            } else {
-                console.log('HOLA')
-            }
-
-
+            cartProducts.splice(idName, 1)
         }
 
         return (
@@ -60,7 +50,7 @@ const Cart = ({ state, setState }) => {
                                 <ListItemAvatar>
                                     <Avatar src={productInCart.img} />
                                 </ListItemAvatar>
-                                <ListItemText primary={productInCart.name} secondary={`$${productInCart.price} × ${productInCart.amount} = ${productInCart.price * productInCart.amount}`} />
+                                <ListItemText primary={productInCart.name} secondary={`$${productInCart.price} × ${productInCart.amount} = ${(productInCart.price * productInCart.amount).toFixed(2)}`} />
                                 <DeleteOutlineOutlinedIcon onClick={() => deleteProductInCart(productInCart)} color='error' sx={{ cursor: 'pointer' }} />
                             </ListItem>
                         )}

@@ -22,7 +22,7 @@ const Home = () => {
     const [counterBag, setCounterBag] = useOutletContext();
     const [stateInfoProduct, setStateInfoProduct] = useState(false);
 
-    console.log(counterBag)
+    // console.log(counterBag)
 
 
     const addProduct = (idName, amount) => {
@@ -37,7 +37,7 @@ const Home = () => {
         }
 
         const productFound = cartProducts.find(product => product.name == idName.name)
-        console.log(productFound)
+       
         if (productFound) {
             productFound.amount = productFound.amount + amount
 
